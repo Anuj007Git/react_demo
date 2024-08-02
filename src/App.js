@@ -1,19 +1,42 @@
-import ClassComponents from "./components/ClassComponents";
-import { Header } from "./components/Header";
-import Test from './Test';
+import './App.css'
+import Contact from "./Pages/Contact/Contact";
+import Services from "./Pages/Services/Services";
+import Footer from "./components/Layouts/Footer/Footer";
+import Header from "./components/Layouts/Header/Header";
+import Slider from "./components/Layouts/Slider/Slider";
 
+
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Route,
+  Link,
+} from "react-router-dom";
 
 function App() {
-  return (
-    <div>
-    <h1>React js</h1>
-    <p>React is a free and open-source front-end JavaScript library for building user interfaces based on components by Facebook Inc. It is maintained by Meta and a community of individual developers and companies. React can be used to develop single-page, mobile, or server-rendered applications with frameworks like Next.js.</p>
-    <Test />
-    <Header />
-    <ClassComponents />
-    </div>
 
-  );
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Home />, 
+    },
+    {
+      path: "services",
+      element: <Services />,
+    },
+    {
+      path: "contact",
+      element: <Contact />,
+    },
+  ]);
+  return (
+    <>
+    {/* <Header />
+    <Slider />
+    <Footer /> */}
+    <RouterProvider router={router} />
+  </>
+  )
 }
 
 export default App;
